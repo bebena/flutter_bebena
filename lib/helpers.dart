@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 import 'extensions.dart';
 
 class Helpers {
@@ -28,4 +30,15 @@ class Helpers {
       return timeToCompare.formatDate(format: "dd MMMM yyyy HH:mm");
     }
   }
+
+  /// Simplified calling [`Navigator.push()`],
+  /// 
+  /// Example:
+  /// ```
+  ///   Helpers.pushTo(context, (context) => WidgetNavigateTo());
+  /// ```
+  static void pushTo(BuildContext context, WidgetBuilder builder) =>
+    Navigator.of(context).push(MaterialPageRoute(builder: builder));
+
+  static bool isDarkMode(BuildContext context) => Theme.of(context).brightness == Brightness.dark;
 }

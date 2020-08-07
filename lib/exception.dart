@@ -1,6 +1,8 @@
 class CustomException implements Exception {
+  CustomException(this.message, { String addInfo = "" });
+
   String message;
-  CustomException(this.message);
+  String addInfo;
 
   @override
   String toString() {

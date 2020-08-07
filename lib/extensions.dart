@@ -19,16 +19,16 @@ extension IntegerExtension on num {
 
 extension DateTimeExt on DateTime {
   String formatDate({ String format = "d MMMM y HH:mm" }) {
-    var formatter = DateFormat(format);
+    var formatter = DateFormat(format, 'id_ID');
     return formatter.format(this);
   }
 }
 
 extension StringExt on String {
   String formatDate({ String format = "d MMMM y HH:mm" }) {
-    if (this.length > 0) {
+    if (this != null && this.isNotEmpty) {
       var dateTime = DateTime.parse(this);
-      var formatter = DateFormat(format);
+      var formatter = DateFormat(format, 'id_ID');
       return formatter.format(dateTime);
     } else {
       return "";
